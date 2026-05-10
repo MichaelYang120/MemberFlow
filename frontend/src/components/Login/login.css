@@ -1,0 +1,118 @@
+/*body {
+	margin: 0;
+	font-family: Inter, sans-serif;
+	background:
+		radial-gradient(circle at top left, #1e3a8a, transparent 35%),
+		radial-gradient(circle at bottom right, #0f172a, transparent 40%),
+		#020617;
+}
+#root {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	box-sizing: border-box;
+}
+*/
+
+.login-container {
+	width: 100%;
+	max-width: 430px;
+	background: rgba(255, 255, 255, 0.96);
+	backdrop-filter: blur(10px);
+	padding: 42px;
+	border-radius: 24px;
+	box-shadow:
+		0 20px 40px rgba(0, 0, 0, 0.25),
+		0 8px 16px rgba(0, 0, 0, 0.08);
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	box-sizing: border-box;
+}
+
+.login-container h1 {
+	margin: 0;
+	font-size: 38px;
+	font-weight: 700;
+	color: #0f172a;
+	line-height: 1.1;
+}
+
+.login-container p {
+	margin: -6px 0 10px;
+	font-size: 15px;
+	color: #64748b;
+}
+
+.login-container input {
+	width: 100%;
+	padding: 15px 16px;
+	border: 1px solid #dbe2ea;
+	border-radius: 14px;
+	font-size: 16px;
+	background: #f8fafc;
+	box-sizing: border-box;
+	outline: none;
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease,
+		background 0.2s ease;
+}
+
+.login-container input::placeholder {
+	color: #94a3b8;
+}
+
+.login-container input:focus {
+	background: #ffffff;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.login-container button {
+	margin-top: 6px;
+	width: 100%;
+	padding: 15px 16px;
+	border: none;
+	border-radius: 14px;
+	background: linear-gradient(135deg, #2563eb, #1d4ed8);
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition:
+		transform 0.12s ease,
+		box-shadow 0.2s ease,
+		opacity 0.2s ease;
+	box-shadow: 0 10px 20px rgba(37, 99, 235, 0.28);
+}
+
+.login-container button:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 14px 28px rgba(37, 99, 235, 0.35);
+}
+
+.login-container button:active {
+	transform: scale(0.98);
+}
+
+.register-link {
+	margin-top: 4px;
+	text-align: center;
+	font-size: 14px;
+	color: #64748b;
+}
+
+.register-link a {
+	color: #2563eb;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s ease;
+}
+
+.register-link a:hover {
+	color: #1d4ed8;
+	text-decoration: underline;
+}
