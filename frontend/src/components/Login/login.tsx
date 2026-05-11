@@ -1,5 +1,6 @@
 import "./login.css"
 import type { AuthMode } from "../../App"
+import type { SubmitEvent } from "react";
 
 type LoginProps = {
 	setUser: (username: string) => void;
@@ -10,7 +11,7 @@ export default function Login({
 	setUser,
 	setAuthMode
 }: LoginProps) {
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
 		const username = formData.get("username") as string;

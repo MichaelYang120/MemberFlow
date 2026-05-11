@@ -1,3 +1,4 @@
+import type { SubmitEvent } from "react"
 import type { AuthMode } from "../../App"
 import "./Register.css"
 
@@ -10,7 +11,7 @@ export default function Register({
 	setUser,
 	setAuthMode
 }: RegisterProps) {
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
 		const formData = new FormData(e.currentTarget)
