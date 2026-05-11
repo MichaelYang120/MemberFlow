@@ -1,13 +1,15 @@
 import "./login.css"
+import type { AuthMode } from "../../App"
 
 type LoginProps = {
 	setUser: (username: string) => void;
+	setAuthMode?: (mode: AuthMode) => void;
 }
 
-export default function Login(
-	{ setUser }: LoginProps
-) {
-
+export default function Login({
+	setUser,
+	setAuthMode
+}: LoginProps) {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
@@ -21,6 +23,12 @@ export default function Login(
 			alert("Please enter both username and password.");
 		}
 	}
+
+	const handleRegisterClick = () => {
+		if (setAuthMode) {
+			setAuthMode("register");
+		}
+	}
 	
 	return (
 		<>
@@ -32,7 +40,7 @@ export default function Login(
 				<input type="password" name="password" placeholder="Password" />
 				<button type="submit">Login</button>
 				<div className="register-link">
-					Don't have an account? <a href="#">Register here</a>
+					Don't have an account? <a href="#" onClick={handleRegisterClick}>Register</a>
 				</div>
 			</form>
 		</>

@@ -17,3 +17,10 @@ Built and styled:
 
 ### State Management
 Implemented React `useState`-based authentication flow for managing active user session state and component rendering.
+
+## May 11, 2026
+### Added Registration Flow
+Implemented user registration functionality with client-side form validation and React state management.
+Created a registration form component that captures user credentials and updates the application authentication state upon successful registration.
+Added Email validation using regex to ensure proper email format during registration. 
+Added conditional rendering logic to dynamically switch between Login, Register, and Member Details views based on active authentication and user session state.

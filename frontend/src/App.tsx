@@ -1,21 +1,34 @@
 import { useState } from "react"
 import Login from "./components/Login/login"
-import MemberDetails from "./pages/MemberDetails/MemberDetails";
+import MemberDetails from "./pages/MemberDetails/MemberDetails"
+import Register from "./pages/Register/Register"
+
+export type AuthMode = "login" | "register"
 
 function App() {
-	const [user, setUser] = useState(""); // State to hold the logged-in user's name
+	const [user, setUser] = useState("")
+	const [authMode, setAuthMode] = useState<AuthMode>("login")
+
 	return (
 		<>
-			{!user ?
-			<Login 
-				setUser={setUser}
-			/>
-			:
-			<MemberDetails
-				username={user}
-				setUser={setUser}
-			/>
-			}
+			{!user ? (
+				authMode === "login" ? (
+					<Login
+						setUser={setUser}
+						setAuthMode={setAuthMode}
+					/>
+				) : (
+					<Register
+						setUser={setUser}
+						setAuthMode={setAuthMode}
+					/>
+				)
+			) : (
+				<MemberDetails
+					username={user}
+					setUser={setUser}
+				/>
+			)}
 		</>
 	)
 }
