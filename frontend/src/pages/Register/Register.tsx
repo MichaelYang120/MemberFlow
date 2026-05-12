@@ -11,7 +11,7 @@ export default function Register({
 	setUser,
 	setAuthMode
 }: RegisterProps) {
-	const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
 		const formData = new FormData(e.currentTarget)
@@ -51,7 +51,29 @@ export default function Register({
 			return
 		}
 
+
+
+		const response = await fetch(`http://localhost:5000/api/auth/register`, { // todo: needs global config
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				username,
+				email,
+				password,
+			}),
+		})
+
+		const data = await response.json()
+
+		if (!response.ok) {
+			alert(data.message || "Registration failed.")
+			return
+		}
+
 		setUser(username)
+		//setUser(data.user.username)
 	}
 
 	const validateEmail = (email: string) => {

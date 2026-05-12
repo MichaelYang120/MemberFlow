@@ -1,0 +1,29 @@
+import { Request, Response } from "express";
+import authService from "../services/authService";
+
+export async function register(req: Request, res: Response) {
+	try {
+		const { username, email, password } = req.body;
+
+		if (!username || !email || !password) {
+			return res.status(400).json({
+				message: "Username, email, and password are required.",
+			});
+		}
+
+		const user = await authService.registerUser({
+			username,
+			email,
+			password,
+		});
+
+		return res.status(201).json({
+			message: "User registered successfully.",
+			user,
+		});
+	} catch (error) {
+		return res.status(400).json({
+			message: error instanceof Error ? error.message : "Registration failed.",
+		});
+	}
+}

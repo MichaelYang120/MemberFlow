@@ -25,3 +25,12 @@ Created a registration form component that captures user credentials and updates
 Added Email validation using regex to ensure proper email format during registration. 
 Added conditional rendering logic to dynamically switch between Login, Register, and Member Details views based on active authentication and user session state.
 Fixed deprecation warnings in React components and updated dependencies to ensure compatibility with the latest React version. Fixed css issue with middle alignment.
+
+## May 12, 2026
+### Added Registration Flow
+Added logic to the registration form component to capture user credentials and update the application authentication state upon successful registration.
+### Backend Authentication API
+Built a REST-based authentication API using Express.js and PostgreSQL. Added user registration endpoint integration between the React frontend and backend services.
+Used mvc architecture to separate concerns between the frontend and backend services, ensuring a clean codebase and maintainable structure.
+### Database Integration
+Configured PostgreSQL database connectivity and implemented persistent user storage using SQL queries and service-layer architecture. Added Dockerized database initialization and container networking for local development.
