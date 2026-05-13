@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import pool from '../config/db';
-import { RegisterInput } from '../types/auth';
+import { LoginInput, RegisterInput } from '../types/auth';
 
 async function registerUser(data: RegisterInput) {
 	const { username, email, password } = data;
@@ -28,6 +28,33 @@ async function registerUser(data: RegisterInput) {
 	return result.rows[0];
 }
 
+async function loginUser(data: LoginInput) {
+	const { username, password } = data;
+
+	const result = await pool.query(
+		"SELECT id, username, email, password_hash FROM users WHERE username = $1",
+		[username]
+	);
+
+	if (result.rows.length === 0) {
+		throw new Error("Invalid username or password");
+	}
+
+	const user = result.rows[0];
+	const isPasswordValid = await bcrypt.compare(password, user.password_hash);
+
+	if (!isPasswordValid) {
+		throw new Error("Invalid username or password");
+	}
+
+	return {
+		id: user.id,
+		username: user.username,
+		email: user.email,
+	};
+}
+
 export default {
 	registerUser,
+	loginUser,
 };

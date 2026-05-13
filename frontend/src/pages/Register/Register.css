@@ -119,3 +119,7 @@
 .register-button:active {
 	transform: scale(0.98);
 }
+
+.error-message {
+    color: red;
+}

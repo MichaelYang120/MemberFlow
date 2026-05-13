@@ -1,6 +1,22 @@
 # MemberFlow
 MemberFlow is a full-stack membership automation platform for subscription-based businesses. It streamlines member onboarding, billing integrations, cancellations, freezes, webhook processing, and admin reporting through scalable APIs, asynchronous job queues, and modern dashboard workflows.
 
+## To run the project locally:
+1. Clone the repository:
+2. cd into the project directory:
+3. docker-compose up --build
+4. Access the frontend at http://localhost:5173
+
+### Troubleshooting guide:
+- If you encounter issues with Docker, ensure that Docker Desktop is installed and running on your machine.
+- Check the terminal output for any error messages during the build or startup process.
+- If the frontend does not load, verify that the backend services are running correctly and that there are no port conflicts.
+- Run `docker-compose logs` to view logs from all services and identify any issues with service startup or connectivity.
+- Run `docker-compose down` to stop and remove all containers, then try `docker-compose up --build` again to rebuild the images and start fresh.
+- Run `docker-compose logs memberflow-backend` to view logs specific to the backend service for more detailed error information.
+- Run `docker-compose logs memberflow-frontend` to view logs specific to the frontend service for more detailed error information.
+
+
 ## May 10, 2026
 ### Key Features
 Established frontend and backend architecture and configured Docker-based development and production environments. The platform uses React for the frontend and Node.js with Express.js for the backend. Containerization enables scalable deployment, consistent local development, and simplified environment management.
@@ -34,3 +50,15 @@ Built a REST-based authentication API using Express.js and PostgreSQL. Added use
 Used mvc architecture to separate concerns between the frontend and backend services, ensuring a clean codebase and maintainable structure.
 ### Database Integration
 Configured PostgreSQL database connectivity and implemented persistent user storage using SQL queries and service-layer architecture. Added Dockerized database initialization and container networking for local development.
+
+## May 13, 2026
+### Authentication State Persistence
+Implemented persistent authentication state management using browser `localStorage` and React `useEffect`. The application now restores active user sessions on page reload and clears stored session data during logout workflows.
+### Error Handling and User Feedback
+Added frontend error handling for authentication API requests and implemented user-facing feedback for failed login and registration attempts. Introduced React-based error state management for improved authentication flow reliability and user experience.
+### Login backend integration
+Integrated the login form with the backend authentication API, allowing users to authenticate against the database and manage their session state based on API responses.
+### Developer Documentation
+Added local installation and setup documentation for Docker-based development environments, including frontend access instructions and backend service configuration.
+### Troubleshooting Guide
+Added troubleshooting documentation covering Docker configuration, container lifecycle management, service connectivity validation, and log inspection commands for debugging local development issues.

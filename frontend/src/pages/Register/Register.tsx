@@ -1,4 +1,4 @@
-import type { SubmitEvent } from "react"
+import { useEffect, useState, type SubmitEvent } from "react"
 import type { AuthMode } from "../../App"
 import "./Register.css"
 
@@ -11,6 +11,8 @@ export default function Register({
 	setUser,
 	setAuthMode
 }: RegisterProps) {
+	const [errorMessage, setErrorMessage] = useState("")
+
 	const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
@@ -68,7 +70,7 @@ export default function Register({
 		const data = await response.json()
 
 		if (!response.ok) {
-			alert(data.message || "Registration failed.")
+			setErrorMessage(data.message || "Registration failed.")
 			return
 		}
 
@@ -80,6 +82,12 @@ export default function Register({
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		return emailRegex.test(email)
 	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setErrorMessage("")
+		}, 15000)
+	}, [errorMessage])
 
 	return (
 		<div className="register-page">
@@ -142,6 +150,10 @@ export default function Register({
 						placeholder="******************"
 						required
 					/>
+				</div>
+				<div className="error-message">
+					{/* Display error messages here */}
+					{errorMessage && <p>{errorMessage}</p>}
 				</div>
 
 				<div className="form-actions">

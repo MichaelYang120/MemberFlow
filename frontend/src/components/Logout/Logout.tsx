@@ -7,6 +7,7 @@ type LogoutProps = {
 export default function Logout({ setUser }: LogoutProps) {
 	function handleLogout() {
 		setUser("")
+		localStorage.removeItem("user")
 	}
 	return (
 		<>

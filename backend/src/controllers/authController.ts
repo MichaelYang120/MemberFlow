@@ -27,3 +27,32 @@ export async function register(req: Request, res: Response) {
 		});
 	}
 }
+
+export async function login(req: Request, res: Response) {
+	// Implement login logic here
+	try {
+		const { username, password } = req.body;
+
+		if (!username || !password) {
+			return res.status(400).json({
+				message: "Username and password are required.",
+			});
+		}
+
+		const user = await authService.loginUser({
+			username,
+			password,
+		});
+
+		return res.status(200).json({
+			message: "User logged in successfully.",
+			user,
+		});
+
+	} catch (error) {
+		return res.status(400).json({
+			message: error instanceof Error ? error.message : "Login failed.",
+		});
+	}
+
+}
