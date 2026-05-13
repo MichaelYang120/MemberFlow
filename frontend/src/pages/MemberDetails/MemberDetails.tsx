@@ -1,5 +1,5 @@
 import Logout from "../../components/Logout/Logout";
-import "./memberDetails.css"
+import "./MemberDetails.css"
 
 type MemberDetailsProps = {
 	username: string;
