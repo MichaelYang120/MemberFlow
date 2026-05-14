@@ -5,11 +5,13 @@ import { useEffect, useState, type SubmitEvent } from "react";
 type LoginProps = {
 	setUser: (username: string) => void;
 	setAuthMode?: (mode: AuthMode) => void;
+	setToken: (token: string) => void;
 }
 
 export default function Login({
 	setUser,
-	setAuthMode
+	setAuthMode,
+	setToken
 }: LoginProps) {
 	const [errorMessage, setErrorMessage] = useState("")
 	const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
@@ -38,6 +40,7 @@ export default function Login({
 			setErrorMessage(data.message || "Login failed. Please try again.")
 			return
 		}
+		setToken(data.token);
 		setUser(username)
 
 	}

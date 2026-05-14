@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import authService from "../services/authService";
+import { generateToken } from "../utils/generateToken";
 
 export async function register(req: Request, res: Response) {
 	try {
@@ -17,9 +18,12 @@ export async function register(req: Request, res: Response) {
 			password,
 		});
 
+		const token = generateToken(user.id);
+
 		return res.status(201).json({
 			message: "User registered successfully.",
 			user,
+			token,
 		});
 	} catch (error) {
 		return res.status(400).json({
@@ -44,9 +48,13 @@ export async function login(req: Request, res: Response) {
 			password,
 		});
 
+		const token = generateToken(user.id);
+		console.log("Generated token:", token);
+
 		return res.status(200).json({
 			message: "User logged in successfully.",
 			user,
+			token,
 		});
 
 	} catch (error) {

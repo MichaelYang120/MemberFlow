@@ -62,3 +62,13 @@ Integrated the login form with the backend authentication API, allowing users to
 Added local installation and setup documentation for Docker-based development environments, including frontend access instructions and backend service configuration.
 ### Troubleshooting Guide
 Added troubleshooting documentation covering Docker configuration, container lifecycle management, service connectivity validation, and log inspection commands for debugging local development issues.
+
+## May 14, 2026
+### JWT Authentication Integration
+Implemented JWT-based authentication using `jsonwebtoken` for secure session management between the React frontend and Express.js backend. Added token generation during login and registration workflows and integrated token persistence using browser `localStorage`.
+### Persistent Token Session Management
+Added React state synchronization for authentication token storage and automatic session restoration across page reloads. Implemented token cleanup during logout workflows to maintain secure client-side session handling.
+### Backend Authorization Infrastructure
+Added backend JWT token generation utilities and integrated token-based authentication responses into REST API login and registration endpoints using Express.js controllers and service-layer architecture.
+### Frontend Authentication Updates
+Updated Login and Registration components to handle authentication tokens returned from backend API responses and maintain authenticated application state across protected workflows.

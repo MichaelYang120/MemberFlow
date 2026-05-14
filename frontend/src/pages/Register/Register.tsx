@@ -5,11 +5,13 @@ import "./Register.css"
 type RegisterProps = {
 	setUser: (username: string) => void
 	setAuthMode: (mode: AuthMode) => void
+	setToken: (token: string) => void
 }
 
 export default function Register({
 	setUser,
-	setAuthMode
+	setAuthMode,
+	setToken
 }: RegisterProps) {
 	const [errorMessage, setErrorMessage] = useState("")
 
@@ -75,6 +77,7 @@ export default function Register({
 		}
 
 		setUser(username)
+		setToken(data.token)
 		//setUser(data.user.username)
 	}
 

@@ -9,6 +9,7 @@ function App() {
 	const [user, setUser] = useState("")
 	const [authMode, setAuthMode] = useState<AuthMode>("login")
 	const localUser = localStorage.getItem("user")
+	const [token, setToken] = useState("")
 
 	useEffect(() => {
 		if (localUser) {
@@ -21,8 +22,16 @@ function App() {
 			localStorage.setItem("user", user)
 		} else {
 			localStorage.removeItem("user")
+			setToken("");
+			localStorage.removeItem("token")
 		}
 	}, [user])
+
+	useEffect(() => {
+		if (token) {
+			localStorage.setItem("token", token)
+		}
+	}, [token])
 
 	return (
 		<>
@@ -31,11 +40,13 @@ function App() {
 					<Login
 						setUser={setUser}
 						setAuthMode={setAuthMode}
+						setToken={setToken}
 					/>
 				) : (
 					<Register
 						setUser={setUser}
 						setAuthMode={setAuthMode}
+						setToken={setToken}
 					/>
 				)
 			) : (
