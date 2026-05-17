@@ -1,7 +1,7 @@
 import { Pool } from "pg"
 
 const pool = new Pool({
-	connectionString: "postgresql://postgres:postgres@postgres:5432/memberflow",
+	connectionString: process.env.DATABASE_URL || "postgresql://postgres:postgres@postgres:5432/memberflow",
 })
 
 pool.on("connect", () => {

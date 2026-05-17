@@ -27,7 +27,8 @@ export default function Login({
 		}
 
 		// Simulate successful login
-		const response = await fetch(`http://localhost:5000/api/auth/login`, { // todo: needs global config
+		const serverUrl = import.meta.env.VITE_API_URL || "http://localhost:5000"; 
+		const response = await fetch(`${serverUrl}/api/auth/login`, { 
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
