@@ -75,3 +75,7 @@ Updated Login and Registration components to handle authentication tokens return
 
 ## May 15, 2026
 ### Updated environmental variables
+
+## May 18, 2026
+### Fixed registration flow bug
+This bug was caused by registering and the logging out, when you are logged out you are not at the login page, but the Register page.

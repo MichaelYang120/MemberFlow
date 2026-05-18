@@ -8,8 +8,8 @@ export type AuthMode = "login" | "register"
 function App() {
 	const [user, setUser] = useState("")
 	const [authMode, setAuthMode] = useState<AuthMode>("login")
-	const localUser = localStorage.getItem("user")
 	const [token, setToken] = useState("")
+	const localUser = localStorage.getItem("user")
 
 	useEffect(() => {
 		if (localUser) {
@@ -20,6 +20,9 @@ function App() {
 	useEffect(() => {
 		if (user) {
 			localStorage.setItem("user", user)
+			if(authMode === "register") {
+				setAuthMode("login")
+			}
 		} else {
 			localStorage.removeItem("user")
 			setToken("");
