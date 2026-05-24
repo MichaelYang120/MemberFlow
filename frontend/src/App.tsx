@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Login from "./components/Login/login"
-import MemberDetails from "./pages/MemberDetails/MemberDetails"
 import Register from "./pages/Register/Register"
+import Home from "./pages/Home/Home"
 
 export type AuthMode = "login" | "register"
 
@@ -53,7 +53,7 @@ function App() {
 					/>
 				)
 			) : (
-				<MemberDetails
+				<Home
 					username={user}
 					setUser={setUser}
 				/>

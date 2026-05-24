@@ -79,3 +79,7 @@ Updated Login and Registration components to handle authentication tokens return
 ## May 18, 2026
 ### Fixed registration flow bug
 This bug was caused by registering and the logging out, when you are logged out you are not at the login page, but the Register page.
+
+## May 24, 2026
+Updated App.tsx file, and created Home.tsx file. MemberDetails was moved to Home.tsx file. This was done to create a better flow for the user, and to have a more organized file structure. The Home.tsx file will be the main page for the user after they log in, and it will contain the MemberDetails component.
+Also added a plans onto the Home.tsx file, this is just a placeholder for now, but it will be used to display the different plans that the user can subscribe to in the future. This is just a basic implementation, and it will be expanded upon in the future to include more features and functionality.
